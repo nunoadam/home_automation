@@ -48,7 +48,7 @@ def relay_http (device, relay_name, new_state):
         """
         Read current state
         """  
-        response = requests.get(url+device['relays']['location'], timeout = 3)
+        response = requests.get(f"{url}{relay['status']['location']}", timeout = 3)
         response.raise_for_status() 
       
         current_state_bit = response.json()['ison']
@@ -61,7 +61,7 @@ def relay_http (device, relay_name, new_state):
 
         if current_state != new_state:
 
-            response = requests.get(f"{url}?turn={new_state}", timeout = 3)
+            response = requests.get(f"{url}turn={new_state}", timeout = 3)
 
             response.raise_for_status()            
 
