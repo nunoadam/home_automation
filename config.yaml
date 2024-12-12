@@ -1,0 +1,358 @@
+automations:
+  - name: "calefactor suelo 1"
+    enabled: True
+    conditions:
+      - trigger:
+          device: "temp_interior"
+          metric: "temperature"
+          condition: "<16"
+        actions:
+          - device: "Rele suelo y ventilador"
+            relay: "calefactor de suelo 1"
+            state: "on"
+      - trigger:
+          device: "temp_interior"
+          metric: "temperature"
+          condition: ">19"
+        actions:
+          - device: "Rele suelo y ventilador"
+            relay: "calefactor de suelo 1"
+            state: "off"
+
+  - name: "ventiladores invernadero"
+    enabled: True
+    conditions:
+      - trigger:
+          device: "temp_interior"
+          metric: "temperature"
+          condition: ">25"
+        actions:
+          - device: "Rele suelo y ventilador"
+            relay: "ventilador 1"
+            state: "on"
+          - device: "Shelly ventilador 2"
+            relay: "ventilador 2"
+            state: "on"
+      - trigger:
+          device: "temp_interior"
+          derived_metric: "VPD"
+          condition: "<4"
+        actions:
+          - device: "Rele suelo y ventilador"
+            relay: "ventilador 1"
+            state: "on"
+          - device: "Shelly ventilador 2"
+            relay: "ventilador 2"
+            state: "on"
+      - trigger:
+          device: "temp_interior"
+          derived_metric: "VPD"
+          condition: ">6"
+        actions:
+          - device: "Rele suelo y ventilador"
+            relay: "ventilador 1"
+            state: "off"
+          - device: "Shelly ventilador 2"
+            relay: "ventilador 2"
+            state: "off"
+
+derived_metrics:
+  - name: "VPD"
+    expression: "calculate_vpd_hpa ( {temperature} , {humidity} )"
+
+logging_sort:
+  - Energia:
+    - Shelly PM 0
+    - solar
+  - Invernadero:
+    - humedad suelo
+    - pH
+    - NPK
+    - suelo
+    - temp_interior
+    - temp_exterior
+    - co2
+  - Acciones:
+    - calefactor suelo 1
+    - ventiladores invernadero
+
+devices:
+  - name: "Rele suelo y ventilador"
+    description: "Relé control calefactor suelo y ventilador 1"
+    type: "Automation"
+
+    connection:
+      type: "modbus"
+      slave: 16
+      method: "coil"
+
+    relays:
+      - name: "calefactor de suelo 1"
+        address: 0
+        states:
+          - on: True
+          - off: False
+        status:
+          address: 0
+          bit : 0
+      - name: "ventilador 1"
+        address: 1
+        states:
+          - on: True
+          - off: False
+        status:
+          address: 0
+          bit : 1
+
+  - name: "Shelly ventilador 2"
+    description: "Control Ventilador 1"
+    type: "Automation"
+
+    connection:
+      type: "http"
+      url: "http://192.168.1.101/relay/0?"
+
+    relays:
+      - name: "ventilador 2"
+        states:
+          - on: "turn=on"
+          - off: "turn=off"
+        status:
+          location: "status"
+
+  - name: "Shelly PM 0"
+    description: "Energia consumida casa"
+    type: "Energia"
+    
+    display: "Home energy: {readings[0]}W"
+
+    connection:
+      type: "http"
+      url: "http://192.168.0.65/status"
+
+    metrics:
+      - name: "power"
+        location: "['emeters'][0]['power']"
+      - name: "total"
+        location: "['emeters'][0]['total']"
+      - name: "total_returned"
+        location: "['emeters'][0]['total_returned']"
+
+  - name: "humedad suelo"
+    description: "Sensor humedad suelo"
+    type: "Invernadero"
+
+    display: "Humedad suelo: {readings[0]}°C, {readings[1]}% HR"
+
+    connection:
+      type: "modbus"
+      slave: 1
+      method: "input_register"
+
+    metrics:
+      - address: 0
+        name: "temperature"
+        units: "°C"
+        factor: 0.01
+        signed: True
+      - address: 1
+        name: "humidity"
+        units: "% HR"
+        factor: 0.01
+      - address: 2
+        name: "ec"
+
+  - name: "pH"
+    description: "pH"
+    type: "Invernadero"
+
+    display: "pH: {readings[0]}"
+
+    connection:
+      type: "modbus"
+      slave: 2
+      method: "input_register"
+
+    metrics:
+      - address: 0
+        name: "pH"
+        factor: 0.1
+
+  - name: "NPK"
+    description: "Fertilización suelo"
+    type: "Invernadero"
+
+    display: "NPK: {readings[0]}-{readings[1]}-{readings[2]}"
+
+    connection:
+      type: "modbus"
+      slave: 3
+      method: "input_register"
+
+    metrics:
+      - address: 0
+        name: "N"
+      - address: 1
+        name: "P"
+      - address: 2
+        name: "K"
+
+  - name: "suelo"
+    description: "Sensor suelo"
+    type: "Invernadero"
+
+    display: "Suelo: {readings[1]}°C, {readings[0]}% HR, {readings[4]}-{readings[5]}-{readings[6]} pH:{readings[3]}"
+
+    connection:
+      type: "modbus"
+      slave: 4
+      method: "input_register"
+
+    metrics:
+      - address: 0
+        name: "humidity"
+        units: "% HR"
+        factor: 0.1
+      - address: 1
+        name: "temperature"
+        units: "°C"
+        factor: 0.1
+        signed: True
+      - address: 2
+        name: "ec"
+      - address: 3
+        name: "pH"
+        factor: 0.1
+      - address: 4
+        name: "N"
+      - address: 5
+        name: "P"
+      - address: 6
+        name: "K"
+      - address: 7
+        name: "salinity"
+      - address: 8
+        name: "tds"
+
+  - name: "temp_interior"
+    description: "Temperatura interior"
+    type: "Invernadero"
+
+    display: "Temp interior: {readings[1]}°C, {readings[0]}% HR"
+
+    connection:
+      type: "modbus"
+      slave: 5
+      method: "input_register"
+
+    metrics:
+      - address: 0
+        name: "humidity"
+        units: "% HR"
+        factor: 0.1
+      - address: 1
+        name: "temperature"
+        units: "°C"
+        factor: 0.1
+        signed: True
+
+  - name: "temp_exterior"
+    description: "Temperatura exterior"
+    type: "Invernadero"
+
+    display: "Temp exterior: {readings[1]}°C, {readings[0]}% HR"
+
+    connection:
+      type: "modbus"
+      slave: 6
+      method: "input_register"
+
+    metrics:
+      - address: 0
+        name: "humidity"
+        units: "% HR"
+        factor: 0.1
+      - address: 1
+        name: "temperature"
+        units: "°C"
+        factor: 0.1
+        signed: True
+
+  - name: "co2"
+    description: "CO2"
+    type: "Invernadero"
+
+    display: "Nivel CO2: {readings[0]} ppm"
+
+    connection:
+      type: "modbus"
+      slave: 7
+      method: "input_register"
+
+    metrics:
+      - address: 0
+        name: "co2"
+        units: " ppm"
+
+  - name: "temp_interior_2"
+    description: "Temperatura interior 2"
+    type: "Invernadero"
+
+    display: "Temp interior: {readings[0]}°C, {readings[1]}% HR"
+
+    connection:
+      type: "modbus"
+      slave: 8
+      method: "holding_register"
+
+    metrics:
+      - address: 0
+        name: "humidity"
+        units: "% HR"
+        factor: 0.1
+      - address: 1
+        name: "temperature"
+        units: "°C"
+        factor: 0.1
+        signed: True
+
+  - name: "temp_interior_3"
+    description: "Temperatura interior 3"
+    type: "Invernadero"
+
+    display: "Temp interior: {readings[0]}°C, {readings[1]}% HR"
+
+    connection:
+      type: "modbus"
+      slave: 9
+      method: "holding_register"
+
+    metrics:
+      - address: 0
+        name: "humidity"
+        units: "% HR"
+        factor: 0.1
+      - address: 1
+        name: "temperature"
+        units: "°C"
+        factor: 0.1
+        signed: True
+
+  - name: "solar"
+    description: "Placas solares"
+    type: "Energia"
+
+    display: "Solar: {readings[0]}W"
+    
+    connection:
+      type: "modbus"
+      slave: 227
+      method: "holding_register"
+
+    metrics:
+      - address: 514
+        name: "power"
+        units: "W"
+        factor: 10
+        signed: True
+        

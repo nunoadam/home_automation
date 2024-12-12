@@ -1,0 +1,376 @@
+timestamp,device,metric,value
+1733955666,Shelly PM 0,power,1518.32
+1733955666,Shelly PM 0,total,2460562.1
+1733955666,Shelly PM 0,total_returned,40951.9
+1733955667,solar,power,0
+1733955667,humedad suelo,temperature,17.97
+1733955667,humedad suelo,humidity,32.56
+1733955667,humedad suelo,ec,230
+1733955667,pH,pH,3.0
+1733955667,NPK,N,7
+1733955667,NPK,P,9
+1733955667,NPK,K,23
+1733955668,suelo,humidity,42.6
+1733955668,suelo,temperature,24.8
+1733955668,suelo,ec,153
+1733955668,suelo,pH,3.0
+1733955668,suelo,N,0
+1733955668,suelo,P,31
+1733955668,suelo,K,23
+1733955668,suelo,salinity,84
+1733955668,suelo,tds,76
+1733955668,temp_interior,humidity,68.3
+1733955668,temp_interior,temperature,6.4
+1733955668,temp_exterior,humidity,51.9
+1733955668,temp_exterior,temperature,4.2
+1733955668,co2,co2,549
+1733955668,Shelly PM 0,power,1445.42
+1733955668,Shelly PM 0,total,2460562.1
+1733955668,Shelly PM 0,total_returned,40951.9
+1733955668,solar,power,0
+1733955668,humedad suelo,temperature,17.97
+1733955668,humedad suelo,humidity,32.56
+1733955668,humedad suelo,ec,230
+1733955668,pH,pH,3.0
+1733955668,NPK,N,7
+1733955668,NPK,P,9
+1733955668,NPK,K,23
+1733955668,suelo,humidity,42.6
+1733955668,suelo,temperature,24.8
+1733955668,suelo,ec,153
+1733955668,suelo,pH,3.0
+1733955668,suelo,N,0
+1733955668,suelo,P,31
+1733955668,suelo,K,23
+1733955668,suelo,salinity,84
+1733955668,suelo,tds,76
+1733955668,temp_interior,humidity,68.3
+1733955668,temp_interior,temperature,6.4
+1733955668,temp_exterior,humidity,51.9
+1733955668,temp_exterior,temperature,4.2
+1733955668,co2,co2,549
+1733955673,Shelly PM 0,power,1509.72
+1733955673,Shelly PM 0,total,2460562.1
+1733955673,Shelly PM 0,total_returned,40951.9
+1733955673,solar,power,0
+1733955674,humedad suelo,temperature,17.97
+1733955674,humedad suelo,humidity,32.56
+1733955674,humedad suelo,ec,233
+1733955674,pH,pH,9.0
+1733955674,NPK,N,7
+1733955674,NPK,P,9
+1733955674,NPK,K,23
+1733955674,suelo,humidity,42.6
+1733955674,suelo,temperature,24.8
+1733955674,suelo,ec,152
+1733955674,suelo,pH,3.0
+1733955674,suelo,N,0
+1733955674,suelo,P,30
+1733955674,suelo,K,22
+1733955674,suelo,salinity,83
+1733955674,suelo,tds,76
+1733955674,temp_interior,humidity,68.4
+1733955674,temp_interior,temperature,6.4
+1733955674,temp_exterior,humidity,51.9
+1733955674,temp_exterior,temperature,4.2
+1733955674,co2,co2,550
+1733955674,Shelly PM 0,power,1509.72
+1733955674,Shelly PM 0,total,2460562.1
+1733955674,Shelly PM 0,total_returned,40951.9
+1733955674,solar,power,0
+1733955674,humedad suelo,temperature,17.97
+1733955674,humedad suelo,humidity,32.56
+1733955674,humedad suelo,ec,233
+1733955674,pH,pH,9.0
+1733955674,NPK,N,7
+1733955674,NPK,P,9
+1733955674,NPK,K,23
+1733955674,suelo,humidity,42.6
+1733955674,suelo,temperature,24.8
+1733955674,suelo,ec,152
+1733955674,suelo,pH,3.0
+1733955674,suelo,N,0
+1733955674,suelo,P,30
+1733955674,suelo,K,22
+1733955674,suelo,salinity,83
+1733955674,suelo,tds,76
+1733955674,temp_interior,humidity,68.4
+1733955674,temp_interior,temperature,6.4
+1733955674,temp_exterior,humidity,51.9
+1733955674,temp_exterior,temperature,4.2
+1733955674,co2,co2,550
+1733955688,Shelly PM 0,power,1452.91
+1733955688,Shelly PM 0,total,2460562.1
+1733955688,Shelly PM 0,total_returned,40951.9
+1733955688,solar,power,0
+1733955688,humedad suelo,temperature,18.0
+1733955688,humedad suelo,humidity,32.49
+1733955688,humedad suelo,ec,240
+1733955688,pH,pH,9.0
+1733955688,NPK,N,7
+1733955688,NPK,P,9
+1733955688,NPK,K,23
+1733955688,suelo,humidity,42.7
+1733955688,suelo,temperature,24.8
+1733955688,suelo,ec,154
+1733955688,suelo,pH,3.0
+1733955688,suelo,N,0
+1733955688,suelo,P,31
+1733955688,suelo,K,23
+1733955688,suelo,salinity,84
+1733955688,suelo,tds,77
+1733955688,temp_interior,humidity,69.1
+1733955688,temp_interior,temperature,6.4
+1733955688,temp_exterior,humidity,51.9
+1733955688,temp_exterior,temperature,4.2
+1733955688,co2,co2,549
+1733955735,Shelly PM 0,power,1469.41
+1733955735,Shelly PM 0,total,2460586.6
+1733955735,Shelly PM 0,total_returned,40951.9
+1733955735,solar,power,0
+1733955735,humedad suelo,temperature,17.97
+1733955735,humedad suelo,humidity,32.49
+1733955735,humedad suelo,ec,250
+1733955735,pH,pH,9.0
+1733955735,NPK,N,7
+1733955735,NPK,P,9
+1733955735,NPK,K,23
+1733955735,suelo,humidity,42.7
+1733955735,suelo,temperature,24.8
+1733955735,suelo,ec,153
+1733955735,suelo,pH,3.0
+1733955735,suelo,N,0
+1733955735,suelo,P,31
+1733955735,suelo,K,23
+1733955735,suelo,salinity,84
+1733955735,suelo,tds,76
+1733955735,temp_interior,humidity,68.7
+1733955735,temp_interior,temperature,6.5
+1733955735,temp_exterior,humidity,51.9
+1733955735,temp_exterior,temperature,4.2
+1733955736,co2,co2,546
+1733956272,Shelly PM 0,power,1549.3
+1733956272,Shelly PM 0,total,2460811.7
+1733956272,Shelly PM 0,total_returned,40951.9
+1733956272,solar,power,0
+1733956273,humedad suelo,temperature,18.03
+1733956273,humedad suelo,humidity,32.49
+1733956273,humedad suelo,ec,240
+1733956273,pH,pH,9.0
+1733956273,NPK,N,7
+1733956273,NPK,P,9
+1733956273,NPK,K,23
+1733956273,suelo,humidity,42.7
+1733956273,suelo,temperature,24.9
+1733956273,suelo,ec,154
+1733956273,suelo,pH,3.0
+1733956273,suelo,N,0
+1733956273,suelo,P,31
+1733956273,suelo,K,23
+1733956273,suelo,salinity,84
+1733956273,suelo,tds,77
+1733956273,temp_interior,humidity,68.6
+1733956273,temp_interior,temperature,6.4
+1733956273,temp_exterior,humidity,51.9
+1733956273,temp_exterior,temperature,4.1
+1733956273,co2,co2,540
+1733956520,Shelly PM 0,power,1526.49
+1733956520,Shelly PM 0,total,2460912.4
+1733956520,Shelly PM 0,total_returned,40951.9
+1733956520,solar,power,0
+1733956520,humedad suelo,temperature,18.08
+1733956520,humedad suelo,humidity,32.49
+1733956520,humedad suelo,ec,228
+1733956521,pH,pH,9.0
+1733956521,NPK,N,7
+1733956521,NPK,P,9
+1733956521,NPK,K,23
+1733956521,suelo,humidity,42.6
+1733956521,suelo,temperature,25.0
+1733956521,suelo,ec,152
+1733956521,suelo,pH,3.0
+1733956521,suelo,N,0
+1733956521,suelo,P,30
+1733956521,suelo,K,22
+1733956521,suelo,salinity,83
+1733956521,suelo,tds,76
+1733956521,temp_interior,humidity,68.9
+1733956521,temp_interior,temperature,6.3
+1733956521,temp_exterior,humidity,51.8
+1733956521,temp_exterior,temperature,4.0
+1733956521,co2,co2,542
+1733956759,Shelly PM 0,power,1518.76
+1733956759,Shelly PM 0,total,2461012.5
+1733956759,Shelly PM 0,total_returned,40951.9
+1733956759,solar,power,0
+1733956759,humedad suelo,temperature,18.08
+1733956759,humedad suelo,humidity,32.49
+1733956759,humedad suelo,ec,228
+1733956759,pH,pH,9.0
+1733956759,NPK,N,7
+1733956759,NPK,P,9
+1733956759,NPK,K,23
+1733956759,suelo,humidity,42.9
+1733956759,suelo,temperature,25.0
+1733956759,suelo,ec,153
+1733956759,suelo,pH,3.0
+1733956759,suelo,N,0
+1733956759,suelo,P,31
+1733956759,suelo,K,23
+1733956759,suelo,salinity,84
+1733956759,suelo,tds,76
+1733956759,temp_interior,humidity,69.5
+1733956759,temp_interior,temperature,6.2
+1733956759,temp_exterior,humidity,51.9
+1733956759,temp_exterior,temperature,4.0
+1733956759,co2,co2,539
+1733956877,Shelly PM 0,power,1501.43
+1733956877,Shelly PM 0,total,2461062.6
+1733956877,Shelly PM 0,total_returned,40951.9
+1733956877,solar,power,0
+1733956877,humedad suelo,temperature,18.11
+1733956877,humedad suelo,humidity,32.49
+1733956877,humedad suelo,ec,233
+1733956877,pH,pH,9.0
+1733956877,NPK,N,7
+1733956877,NPK,P,9
+1733956877,NPK,K,23
+1733956877,suelo,humidity,43.0
+1733956877,suelo,temperature,25.1
+1733956877,suelo,ec,154
+1733956877,suelo,pH,3.0
+1733956877,suelo,N,0
+1733956877,suelo,P,31
+1733956877,suelo,K,23
+1733956877,suelo,salinity,84
+1733956877,suelo,tds,77
+1733956877,temp_interior,humidity,69.3
+1733956877,temp_interior,temperature,6.2
+1733956877,temp_exterior,humidity,51.9
+1733956877,temp_exterior,temperature,4.0
+1733956877,co2,co2,537
+1733956879,Shelly PM 0,power,1535.92
+1733956879,Shelly PM 0,total,2461062.6
+1733956879,Shelly PM 0,total_returned,40951.9
+1733956879,solar,power,0
+1733956879,humedad suelo,temperature,18.11
+1733956879,humedad suelo,humidity,32.49
+1733956879,humedad suelo,ec,234
+1733956879,pH,pH,9.0
+1733956879,NPK,N,7
+1733956879,NPK,P,9
+1733956879,NPK,K,23
+1733956879,suelo,humidity,42.7
+1733956879,suelo,temperature,25.1
+1733956879,suelo,ec,155
+1733956879,suelo,pH,3.0
+1733956879,suelo,N,0
+1733956879,suelo,P,31
+1733956879,suelo,K,24
+1733956879,suelo,salinity,85
+1733956879,suelo,tds,77
+1733956879,temp_interior,humidity,69.3
+1733956879,temp_interior,temperature,6.2
+1733956879,temp_exterior,humidity,51.9
+1733956879,temp_exterior,temperature,4.0
+1733956879,co2,co2,537
+1733956887,Shelly PM 0,power,1541.98
+1733956887,Shelly PM 0,total,2461062.6
+1733956887,Shelly PM 0,total_returned,40951.9
+1733956887,solar,power,0
+1733956887,humedad suelo,temperature,18.14
+1733956887,humedad suelo,humidity,32.49
+1733956887,humedad suelo,ec,234
+1733956887,pH,pH,9.0
+1733956888,NPK,N,7
+1733956888,NPK,P,9
+1733956888,NPK,K,24
+1733956888,suelo,humidity,42.7
+1733956888,suelo,temperature,25.1
+1733956888,suelo,ec,154
+1733956888,suelo,pH,3.0
+1733956888,suelo,N,0
+1733956888,suelo,P,31
+1733956888,suelo,K,23
+1733956888,suelo,salinity,84
+1733956888,suelo,tds,77
+1733956888,temp_interior,humidity,69.1
+1733956888,temp_interior,temperature,6.2
+1733956888,temp_exterior,humidity,51.9
+1733956888,temp_exterior,temperature,4.0
+1733956888,co2,co2,537
+1733956989,Shelly PM 0,power,1514.26
+1733956989,Shelly PM 0,total,2461112.7
+1733956989,Shelly PM 0,total_returned,40951.9
+1733956989,solar,power,0
+1733956989,humedad suelo,temperature,18.14
+1733956989,humedad suelo,humidity,32.49
+1733956989,humedad suelo,ec,238
+1733956989,pH,pH,8.9
+1733956989,NPK,N,7
+1733956989,NPK,P,9
+1733956989,NPK,K,23
+1733956989,suelo,humidity,42.3
+1733956989,suelo,temperature,25.1
+1733956989,suelo,ec,153
+1733956989,suelo,pH,3.0
+1733956989,suelo,N,0
+1733956989,suelo,P,31
+1733956989,suelo,K,23
+1733956989,suelo,salinity,84
+1733956989,suelo,tds,76
+1733956989,temp_interior,humidity,69.5
+1733956989,temp_interior,temperature,6.2
+1733956989,temp_exterior,humidity,51.8
+1733956989,temp_exterior,temperature,3.9
+1733956989,co2,co2,535
+1733957070,Shelly PM 0,power,1585.07
+1733957070,Shelly PM 0,total,2461138.0
+1733957070,Shelly PM 0,total_returned,40951.9
+1733957070,solar,power,0
+1733957070,humedad suelo,temperature,18.14
+1733957070,humedad suelo,humidity,32.49
+1733957070,humedad suelo,ec,241
+1733957070,pH,pH,9.0
+1733957070,NPK,N,7
+1733957070,NPK,P,9
+1733957070,NPK,K,23
+1733957070,suelo,humidity,42.2
+1733957070,suelo,temperature,25.1
+1733957070,suelo,ec,153
+1733957070,suelo,pH,3.0
+1733957070,suelo,N,0
+1733957070,suelo,P,31
+1733957070,suelo,K,23
+1733957070,suelo,salinity,84
+1733957070,suelo,tds,76
+1733957070,temp_interior,humidity,69.6
+1733957070,temp_interior,temperature,6.2
+1733957070,temp_exterior,humidity,51.8
+1733957070,temp_exterior,temperature,3.9
+1733957070,co2,co2,535
+1733957121,Shelly PM 0,power,1522.82
+1733957121,Shelly PM 0,total,2461163.4
+1733957121,Shelly PM 0,total_returned,40951.9
+1733957121,solar,power,0
+1733957121,humedad suelo,temperature,18.11
+1733957121,humedad suelo,humidity,32.49
+1733957121,humedad suelo,ec,233
+1733957121,pH,pH,3.9
+1733957121,NPK,N,7
+1733957121,NPK,P,9
+1733957121,NPK,K,23
+1733957121,suelo,humidity,42.3
+1733957121,suelo,temperature,25.1
+1733957121,suelo,ec,154
+1733957121,suelo,pH,3.0
+1733957121,suelo,N,0
+1733957121,suelo,P,31
+1733957121,suelo,K,23
+1733957121,suelo,salinity,84
+1733957121,suelo,tds,77
+1733957121,temp_interior,humidity,69.5
+1733957121,temp_interior,temperature,6.2
+1733957121,temp_exterior,humidity,51.8
+1733957121,temp_exterior,temperature,4.0
+1733957121,co2,co2,535
