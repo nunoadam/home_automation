@@ -64,8 +64,8 @@ def read_http_device(device):
     """
     try:
         url = device['connection']["url"]
-        response = requests.get(url)
-        response.raise_for_status()
+        response = requests.get(url, timeout = 3)
+        response.raise_for_status() 
         data = response.json()
 
         readings = {}
@@ -82,10 +82,15 @@ def read_http_device(device):
                 print(f"Metric '{metric['name']}' not found in device '{device['name']}'")
 
         return readings
+    
+    except requests.exceptions.Timeout:
+        print("The request timed out. Please try again later.")
+        return None
 
     except requests.RequestException as e:
         print(f"Error reading HTTP device {device['name']}: {e}")
         return None
+    
     except Exception as e:
         print(f"Unexpected error for {device['name']}: {e}")
         return None

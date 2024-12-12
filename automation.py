@@ -33,6 +33,55 @@ def relay (device, relay_name, new_state, client):
     except Exception as e:
         print(f"Unexpected error while logging device '{device['name']}': {e}")
 
+def relay_http (device, relay_name, new_state):
+    """
+    Read state of relay and returns previous state and new state
+    """
+    try:
+        url = device['connection']["url"]
+        relay = find_object_by_name (relay_name , device['relays'])
+
+        if not relay:
+            print(f"Unable to find relay '{relay_name}' in device {device['name']}")
+            return None, None         
+
+        """
+        Read current state
+        """  
+        response = requests.get(url+device['relays']['location'], timeout = 3)
+        response.raise_for_status() 
+      
+        current_state_bit = response.json()['ison']
+      
+        current_state = "on" if current_state_bit else "off"
+       
+        """
+        Change the state if needed
+        """         
+
+        if current_state != new_state:
+
+            response = requests.get(f"{url}?turn={new_state}", timeout = 3)
+
+            response.raise_for_status()            
+
+            relay_response = response.json()['ison']
+
+            new_state = "on" if relay_response else "off"
+
+        return current_state, new_state
+
+    except requests.exceptions.Timeout:
+        print("The request timed out. Please try again later.")
+        return None
+
+    except requests.RequestException as e:
+        print(f"Error reading HTTP device {device['name']}: {e}")
+        return None
+
+    except Exception as e:
+        print(f"Unexpected error while reading Modbus device '{device['name']}': {e}")
+
 def relay_modbus (device, relay_name, new_state, client):
     """
     Read state of relay and returns previous state and new state
@@ -72,7 +121,7 @@ def relay_modbus (device, relay_name, new_state, client):
         if current_state != new_state:
 
             address = relay["address"]
-            action = find_object_by_name (new_state , relay["states"])
+            action = True if new_state == "on" else False
 
             if method == "coil":
                 response = client.write_coil(address, action, slave)
