@@ -124,3 +124,78 @@ timestamp,device,metric,value
 1734110768,temp_exterior,humidity,52.7
 1734110768,temp_exterior,temperature,7.4
 1734110768,co2,co2,615
+1734110935,Shelly PM 0,power,3122.16
+1734110935,Shelly PM 0,total,2528750.2
+1734110935,Shelly PM 0,total_returned,42041.7
+1734110935,solar,power,0
+1734110935,humedad suelo,temperature,18.82
+1734110935,humedad suelo,humidity,32.79
+1734110935,humedad suelo,ec,235
+1734110935,pH,pH,7.3
+1734110935,NPK,N,6
+1734110935,NPK,P,9
+1734110935,NPK,K,22
+1734110935,suelo,humidity,44.2
+1734110935,suelo,temperature,24.1
+1734110935,suelo,ec,158
+1734110935,suelo,pH,3.0
+1734110935,suelo,N,0
+1734110935,suelo,P,33
+1734110935,suelo,K,25
+1734110935,suelo,salinity,86
+1734110935,suelo,tds,79
+1734110935,temp_interior,humidity,74.9
+1734110935,temp_interior,temperature,8.9
+1734110935,temp_exterior,humidity,52.7
+1734110935,temp_exterior,temperature,7.4
+1734110936,co2,co2,615
+1734110952,Shelly PM 0,power,3112.61
+1734110952,Shelly PM 0,total,2528802.6
+1734110952,Shelly PM 0,total_returned,42041.7
+1734110952,solar,power,0
+1734110952,humedad suelo,temperature,18.82
+1734110952,humedad suelo,humidity,32.79
+1734110952,humedad suelo,ec,235
+1734110952,pH,pH,6.9
+1734110952,NPK,N,6
+1734110952,NPK,P,9
+1734110952,NPK,K,22
+1734110952,suelo,humidity,44.2
+1734110952,suelo,temperature,24.0
+1734110952,suelo,ec,157
+1734110952,suelo,pH,3.0
+1734110952,suelo,N,0
+1734110952,suelo,P,32
+1734110952,suelo,K,25
+1734110952,suelo,salinity,86
+1734110952,suelo,tds,78
+1734110952,temp_interior,humidity,74.8
+1734110952,temp_interior,temperature,8.9
+1734110952,temp_exterior,humidity,52.7
+1734110952,temp_exterior,temperature,7.4
+1734110952,co2,co2,616
+1734110985,Shelly PM 0,power,3171.23
+1734110985,Shelly PM 0,total,2528802.6
+1734110985,Shelly PM 0,total_returned,42041.7
+1734110985,solar,power,0
+1734110985,humedad suelo,temperature,18.82
+1734110985,humedad suelo,humidity,32.84
+1734110985,humedad suelo,ec,237
+1734110985,pH,pH,6.2
+1734110985,NPK,N,6
+1734110985,NPK,P,9
+1734110985,NPK,K,22
+1734110986,suelo,humidity,44.3
+1734110986,suelo,temperature,24.1
+1734110986,suelo,ec,156
+1734110986,suelo,pH,3.0
+1734110986,suelo,N,0
+1734110986,suelo,P,32
+1734110986,suelo,K,24
+1734110986,suelo,salinity,85
+1734110986,suelo,tds,78
+1734110986,temp_interior,humidity,74.8
+1734110986,temp_interior,temperature,8.9
+1734110986,temp_exterior,humidity,52.7
+1734110986,temp_exterior,temperature,7.4
+1734110986,co2,co2,615

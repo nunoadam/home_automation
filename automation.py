@@ -9,8 +9,9 @@ def trigger (automation, devices, client):
 
         readings = read_device (input_device, client)
 
-        if trigger['metric'] == 'VPD':
-            readings['VPD'] = vpd_hpa (readings['temperature'], readings['humidity'])
+        if trigger['metric'].upper() == 'VPD':
+            vpd = vpd_hpa (readings['temperature'], readings['humidity'])
+            readings['VPD'] = round(vpd, 2)
               
         if eval ( f"{readings[trigger['metric']]}{trigger['condition']}" ):
             print (f"\t{input_device['name']}, {trigger['metric']}: {readings[trigger['metric']]} Condition meet ({trigger['condition']})")
