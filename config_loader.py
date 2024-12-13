@@ -5,7 +5,6 @@ def load_config():
         config = yaml.safe_load(file)
            
     devices = config.get("devices", [])
-    logging_sort = config.get("logging_sort", [])
     automations = config.get("automations", [])
 
-    return devices, logging_sort, automations
+    return devices, automations

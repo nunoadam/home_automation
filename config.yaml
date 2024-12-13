@@ -56,26 +56,12 @@ automations:
             relay: "ventilador 2"
             state: "off"
 
-logging_sort:
-  - Energia:
-    - Shelly PM 0
-    - solar
-  - Invernadero:
-    - humedad suelo
-    - pH
-    - NPK
-    - suelo
-    - temp_interior
-    - temp_exterior
-    - co2
-  - Acciones:
-    - calefactor suelo 1
-    - ventiladores invernadero
-
 devices:
   - name: "Rele suelo y ventilador"
     description: "Relé control calefactor suelo y ventilador 1"
     type: "Automation"
+    enabled: True
+    category: "Invernadero"
 
     connection:
       type: "modbus"
@@ -97,6 +83,8 @@ devices:
   - name: "Shelly ventilador 2"
     description: "Control Ventilador 1"
     type: "Automation"
+    enabled: True
+    category: "Invernadero"
 
     connection:
       type: "http"
@@ -109,7 +97,9 @@ devices:
 
   - name: "Shelly PM 0"
     description: "Energia consumida casa"
-    type: "Energia"
+    type: "sensor"
+    enabled: True
+    category: "Energia"
     
     display: "Home energy: {readings[0]}W"
 
@@ -127,7 +117,9 @@ devices:
 
   - name: "humedad suelo"
     description: "Sensor humedad suelo"
-    type: "Invernadero"
+    type: "sensor"
+    enabled: True
+    category: "Invernadero"
 
     display: "Humedad suelo: {readings[0]}°C, {readings[1]}% HR"
 
@@ -151,7 +143,9 @@ devices:
 
   - name: "pH"
     description: "pH"
-    type: "Invernadero"
+    type: "sensor"
+    enabled: True
+    category: "Invernadero"
 
     display: "pH: {readings[0]}"
 
@@ -167,7 +161,9 @@ devices:
 
   - name: "NPK"
     description: "Fertilización suelo"
-    type: "Invernadero"
+    type: "sensor"
+    enabled: True
+    category: "Invernadero"
 
     display: "NPK: {readings[0]}-{readings[1]}-{readings[2]}"
 
@@ -186,7 +182,9 @@ devices:
 
   - name: "suelo"
     description: "Sensor suelo"
-    type: "Invernadero"
+    type: "sensor"
+    enabled: True
+    category: "Invernadero"
 
     display: "Suelo: {readings[1]}°C, {readings[0]}% HR, {readings[4]}-{readings[5]}-{readings[6]} pH:{readings[3]}"
 
@@ -223,7 +221,9 @@ devices:
 
   - name: "temp_interior"
     description: "Temperatura interior"
-    type: "Invernadero"
+    type: "sensor"
+    enabled: True
+    category: "Invernadero"
 
     display: "Temp interior: {readings[1]}°C, {readings[0]}% HR"
 
@@ -245,7 +245,9 @@ devices:
 
   - name: "temp_exterior"
     description: "Temperatura exterior"
-    type: "Invernadero"
+    type: "sensor"
+    enabled: True
+    category: "Invernadero"
 
     display: "Temp exterior: {readings[1]}°C, {readings[0]}% HR"
 
@@ -267,7 +269,9 @@ devices:
 
   - name: "co2"
     description: "CO2"
-    type: "Invernadero"
+    type: "sensor"
+    enabled: True
+    category: "Invernadero"
 
     display: "Nivel CO2: {readings[0]} ppm"
 
@@ -283,9 +287,11 @@ devices:
 
   - name: "temp_interior_2"
     description: "Temperatura interior 2"
-    type: "Invernadero"
+    type: "sensor"
+    enabled: False
+    category: "Invernadero"
 
-    display: "Temp interior: {readings[0]}°C, {readings[1]}% HR"
+    display: "Temp interior 2: {readings[0]}°C, {readings[1]}% HR"
 
     connection:
       type: "modbus"
@@ -305,9 +311,11 @@ devices:
 
   - name: "temp_interior_3"
     description: "Temperatura interior 3"
-    type: "Invernadero"
+    type: "sensor"
+    enabled: False
+    category: "Invernadero"
 
-    display: "Temp interior: {readings[0]}°C, {readings[1]}% HR"
+    display: "Temp interior 3: {readings[0]}°C, {readings[1]}% HR"
 
     connection:
       type: "modbus"
@@ -327,7 +335,9 @@ devices:
 
   - name: "solar"
     description: "Placas solares"
-    type: "Energia"
+    type: "sensor"
+    enabled: True
+    category: "Energia"
 
     display: "Solar: {readings[0]}W"
     
@@ -343,3 +353,18 @@ devices:
         factor: 10
         signed: True
         
+  - name: "presion caldera"
+    description: "Presión de la caldera de calefacción"
+    type: "sensor"
+    enabled: True
+    category: "Otros"
+    
+    display: "Presión caldera: {readings[0]} bar"
+
+    connection:
+      type: "http"
+      url: "http://192.168.0.14/rpc/Shelly.GetStatus"
+
+    metrics:
+      - name: "presion"
+        location: "['voltmeter:100']['xvoltage']"

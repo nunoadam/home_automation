@@ -17,7 +17,7 @@ def log_device(device, client):
         
         if readings:
             try:
-                csv_writer(device, readings)
+                csv_writer(device["name"], readings)
             except Exception as e:
                 print(f"Error writing csv '{device['name']}': {e}")
 
@@ -26,44 +26,40 @@ def log_device(device, client):
     except Exception as e:
         print(f"Unexpected error while logging device '{device['name']}': {e}")
 
-def log_all(client, logging_sort, automations):
+def log_all(client, devices, automations):
     """
-    Run logging in the order defined in logging_configuration.
+    Run logging
     """
+    print ('----- Energia -----')
+    log_category ('Energia', client, devices)
+    print ('----- Invernadero -----')
+    log_category ('Invernadero', client, devices)
+    print ('----- Otros -----')
+    log_category ('Otros', client, devices)
+    print ('----- Acciones -----')
+    for automation in automations:
+        print(automation['name'])
+        trigger (automation, devices, client)
 
-    for section in logging_sort:
-        for device_type, logs in section.items():
-            print(f'----- {device_type} -----')
-            if device_type == 'Invernadero' or device_type == 'Energia':
-                for log in logs:
-                    device = find_object_by_name (log, devices)
-                    if device:
-                        log_device(device, client)
-                        continue
-                    else:
-                        print(f"Device '{log}' not found!")
-            elif device_type == 'Acciones':
-                for log in logs:
-                    automation = find_object_by_name (log, automations)
-                    if automation:
-                        print(f"{automation['name']}")
-                        trigger (automation, devices, client)
-                        continue
-                    else:
-                        print(f"Device '{log}' not found!")
-            else:
-                print(f"Unkown '{device_type}' section!")
-
+def log_category (category, client, devices):
+    for device in devices:
+        if device['category'] == category and device['enabled'] and device['type'] == 'sensor':
+            log_device(device, client)
                     
 if __name__ == "__main__": 
 
     client = ModbusTcpClient("192.168.1.200", port=4196)
 
-    devices, logging_sort, automations = load_config()
-    
-    os.system("clear")
+    devices, automations = load_config()
 
     try:
-        log_all(client, logging_sort,automations)
+        while True:
+            os.system("clear")
+            log_all(client, devices ,automations)
+            time.sleep(60)
+
+    except KeyboardInterrupt:
+        print("Data collection stopped by user.")
+
     finally:
         client.close()

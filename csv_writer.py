@@ -2,7 +2,7 @@ import time
 import os
 import csv
 
-def csv_writer(device, readings):
+def csv_writer(device_name, readings):
     """
     Write log file with readings in the updated format.
 
@@ -17,7 +17,7 @@ def csv_writer(device, readings):
         data.append(
             {
                 'timestamp': timestamp,
-                'device': device["name"],
+                'device': device_name,
                 'metric': metric_name,
                 'value': value
             }

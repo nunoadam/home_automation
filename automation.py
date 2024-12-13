@@ -1,31 +1,35 @@
 from device_reader import * 
 from functions import *
+from csv_writer import *
 
 def trigger (automation, devices, client):
-    for i, condition in enumerate(automation["conditions"]):
 
-        trigger = condition['trigger']
-        input_device = find_object_by_name (trigger['device'], devices)
+    if automation['enabled']:
 
-        readings = read_device (input_device, client)
+        for i, condition in enumerate(automation["conditions"]):
 
-        if trigger['metric'].upper() == 'VPD':
-            vpd = vpd_hpa (readings['temperature'], readings['humidity'])
-            readings['VPD'] = round(vpd, 2)
-              
-        if eval ( f"{readings[trigger['metric']]}{trigger['condition']}" ):
-            print (f"\t{input_device['name']}, {trigger['metric']}: {readings[trigger['metric']]} Condition meet ({trigger['condition']})")
-            for action in condition['actions']:
-                action_device = find_object_by_name (action['device'], devices)
-                current_state, new_state = relay (action_device, action['relay'], action['state'], client)
+            trigger = condition['trigger']
+            input_device = find_object_by_name (trigger['device'], devices)
 
-            if current_state == new_state:
-                print (f"\t\tNo changes in relay {action['relay']} (current state: {new_state})")
+            readings = read_device (input_device, client)
+
+            if trigger['metric'].upper() == 'VPD':
+                vpd = vpd_hpa (readings['temperature'], readings['humidity'])
+                readings['VPD'] = round(vpd, 2)
+                
+            if eval ( f"{readings[trigger['metric']]}{trigger['condition']}" ):
+                print (f"\t{input_device['name']}, {trigger['metric']}: {readings[trigger['metric']]} Condition meet ({trigger['condition']})")
+                for action in condition['actions']:
+                    action_device = find_object_by_name (action['device'], devices)
+                    current_state, new_state = relay (action_device, action['relay'], action['state'], client)
+
+                if current_state == new_state:
+                    print (f"\t\tNo changes in relay {action['relay']} (current state: {new_state})")
+                else:
+                    print (f"\t\tRelay {action['relay']} changed from {current_state} to {new_state})")
+
             else:
-                print (f"\t\tRelay {action['relay']} changed from {current_state} to {new_state})")
-
-        else:
-            print (f"\t{input_device['name']}, {trigger['metric']}: {readings[trigger['metric']]} Condition not meet ({trigger['condition']})")
+                print (f"\t{input_device['name']}, {trigger['metric']}: {readings[trigger['metric']]} Condition not meet ({trigger['condition']})")
         
 def relay (device, relay_name, new_state, client):
     try:
@@ -78,6 +82,12 @@ def relay_http (device, relay_name, new_state):
 
             new_state = "on" if relay_response else "off"
 
+            readings = {}
+
+            readings["action"] = 1 if relay_response else 0
+
+            csv_writer(relay["name"], readings)
+
         return current_state, new_state
 
     except requests.exceptions.Timeout:
@@ -122,7 +132,7 @@ def relay_modbus (device, relay_name, new_state, client):
         current_state_bit = response.bits[relay["status"]["bit"]]  
        
         current_state = "on" if current_state_bit else "off"
-       
+      
         """
         Change the state if needed
         """         
@@ -145,6 +155,12 @@ def relay_modbus (device, relay_name, new_state, client):
             relay_response = response.value
 
             new_state = "on" if relay_response else "off"
+
+            readings = {}
+
+            readings["action"] = 1 if relay_response else 0
+
+            csv_writer(relay["name"], readings)
 
         return current_state, new_state
 
