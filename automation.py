@@ -23,10 +23,10 @@ def trigger (automation, devices, client):
                     action_device = find_object_by_name (action['device'], devices)
                     current_state, new_state = relay (action_device, action['relay'], action['state'], client)
 
-                if current_state == new_state:
-                    print (f"\t\tNo changes in relay {action['relay']} (current state: {new_state})")
-                else:
-                    print (f"\t\tRelay {action['relay']} changed from {current_state} to {new_state})")
+                    if current_state == new_state:
+                        print (f"\t\tNo changes in relay {action['relay']} (current state: {new_state})")
+                    else:
+                        print (f"\t\tRelay {action['relay']} changed from {current_state} to {new_state})")
 
             else:
                 print (f"\t{input_device['name']}, {trigger['metric']}: {readings[trigger['metric']]} Condition not meet ({trigger['condition']})")

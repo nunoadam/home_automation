@@ -50,11 +50,10 @@ if __name__ == "__main__":
 
     client = ModbusTcpClient("192.168.1.200", port=4196)
 
-    devices, automations = load_config()
-
     try:
         while True:
             os.system("clear")
+            devices, automations = load_config()
             log_all(client, devices ,automations)
             time.sleep(60)
 
