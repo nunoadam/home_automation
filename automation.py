@@ -3,27 +3,35 @@ from functions import *
 
 def trigger (automation, devices, client):
     for i, condition in enumerate(automation["conditions"]):
+
         trigger = condition['trigger']
         input_device = find_object_by_name (trigger['device'], devices)
+
         readings = read_device (input_device, client)
 
+        if trigger['metric'] == 'VPD':
+            readings['VPD'] = vpd_hpa (readings['temperature'], readings['humidity'])
+              
         if eval ( f"{readings[trigger['metric']]}{trigger['condition']}" ):
+            print (f"\t{input_device['name']}, {trigger['metric']}: {readings[trigger['metric']]} Condition meet ({trigger['condition']})")
             for action in condition['actions']:
                 action_device = find_object_by_name (action['device'], devices)
                 current_state, new_state = relay (action_device, action['relay'], action['state'], client)
 
             if current_state == new_state:
-                print (f"{automation['name']}: Condition {i+1} ({trigger['metric']}: {readings[trigger['metric']]}{trigger['condition']}) meet. No changes in relay {action['relay']} (current state: {new_state})")
+                print (f"\t\tNo changes in relay {action['relay']} (current state: {new_state})")
             else:
-                print (f"{automation['name']}: Condition {i+1} ({trigger['metric']}: {readings[trigger['metric']]}{trigger['condition']}) meet. Relay {action['relay']} changed from {current_state} to {new_state})")
+                print (f"\t\tRelay {action['relay']} changed from {current_state} to {new_state})")
 
         else:
-            print (f"{automation['name']}: Condition {i+1} ({trigger['metric']}: {readings[trigger['metric']]}{trigger['condition']}) not meet")
+            print (f"\t{input_device['name']}, {trigger['metric']}: {readings[trigger['metric']]} Condition not meet ({trigger['condition']})")
         
 def relay (device, relay_name, new_state, client):
     try:
         if device["connection"]["type"] == "modbus":
             current_state, new_state = relay_modbus (device, relay_name, new_state, client)
+        elif device["connection"]["type"] == "http":
+            current_state, new_state = relay_http (device, relay_name, new_state)
         else:
             print(f"Unknown connection type for {device['name']}")
             return

@@ -3,7 +3,7 @@ automations:
     enabled: True
     conditions:
       - trigger:
-          device: "temp_interior"
+          device: "humedad suelo"
           metric: "temperature"
           condition: "<16"
         actions:
@@ -11,7 +11,7 @@ automations:
             relay: "calefactor de suelo 1"
             state: "on"
       - trigger:
-          device: "temp_interior"
+          device: "humedad suelo"
           metric: "temperature"
           condition: ">19"
         actions:
@@ -35,7 +35,7 @@ automations:
             state: "on"
       - trigger:
           device: "temp_interior"
-          derived_metric: "VPD"
+          metric: "VPD"
           condition: "<4"
         actions:
           - device: "Rele suelo y ventilador"
@@ -46,7 +46,7 @@ automations:
             state: "on"
       - trigger:
           device: "temp_interior"
-          derived_metric: "VPD"
+          metric: "VPD"
           condition: ">6"
         actions:
           - device: "Rele suelo y ventilador"
@@ -55,10 +55,6 @@ automations:
           - device: "Shelly ventilador 2"
             relay: "ventilador 2"
             state: "off"
-
-derived_metrics:
-  - name: "VPD"
-    expression: "calculate_vpd_hpa ( {temperature} , {humidity} )"
 
 logging_sort:
   - Energia:

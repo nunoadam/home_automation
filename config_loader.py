@@ -7,6 +7,5 @@ def load_config():
     devices = config.get("devices", [])
     logging_sort = config.get("logging_sort", [])
     automations = config.get("automations", [])
-    derived_metrics = config.get("derived_metrics", [])
 
-    return devices, logging_sort, automations, derived_metrics
+    return devices, logging_sort, automations

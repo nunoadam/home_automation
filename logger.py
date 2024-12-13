@@ -26,7 +26,7 @@ def log_device(device, client):
     except Exception as e:
         print(f"Unexpected error while logging device '{device['name']}': {e}")
 
-def log_all(client, logging_sort):
+def log_all(client, logging_sort, automations):
     """
     Run logging in the order defined in logging_configuration.
     """
@@ -46,7 +46,8 @@ def log_all(client, logging_sort):
                 for log in logs:
                     automation = find_object_by_name (log, automations)
                     if automation:
-                        print(automation["name"])
+                        print(f"{automation['name']}")
+                        trigger (automation, devices, client)
                         continue
                     else:
                         print(f"Device '{log}' not found!")
@@ -58,11 +59,11 @@ if __name__ == "__main__":
 
     client = ModbusTcpClient("192.168.1.200", port=4196)
 
-    devices, logging_sort, automations, derived_metrics = load_config()
+    devices, logging_sort, automations = load_config()
     
     os.system("clear")
 
     try:
-        log_all(client, logging_sort)
+        log_all(client, logging_sort,automations)
     finally:
         client.close()
