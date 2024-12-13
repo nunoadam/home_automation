@@ -613,3 +613,29 @@ timestamp,device,metric,value
 1734129147,temp_exterior,temperature,3.6
 1734129147,co2,co2,669
 1734129147,presion caldera,presion,1.29
+1734129323,Shelly PM 0,power,955.87
+1734129323,Shelly PM 0,total,2538714.1
+1734129323,Shelly PM 0,total_returned,42041.7
+1734129323,solar,power,0
+1734129323,humedad suelo,temperature,15.91
+1734129323,humedad suelo,humidity,32.39
+1734129323,humedad suelo,ec,233
+1734129323,pH,pH,7.7
+1734129324,NPK,N,6
+1734129324,NPK,P,8
+1734129324,NPK,K,21
+1734129324,suelo,humidity,43.0
+1734129324,suelo,temperature,15.3
+1734129324,suelo,ec,137
+1734129324,suelo,pH,3.0
+1734129324,suelo,N,0
+1734129324,suelo,P,23
+1734129324,suelo,K,15
+1734129324,suelo,salinity,75
+1734129324,suelo,tds,68
+1734129324,temp_interior,humidity,79.2
+1734129324,temp_interior,temperature,5.6
+1734129324,temp_exterior,humidity,51.9
+1734129324,temp_exterior,temperature,3.6
+1734129324,co2,co2,666
+1734129324,presion caldera,presion,1.27
