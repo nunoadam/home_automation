@@ -6,30 +6,35 @@ def trigger (automation, devices, client):
 
     if automation['enabled']:
 
-        for i, condition in enumerate(automation["conditions"]):
+        try:
 
-            trigger = condition['trigger']
-            input_device = find_object_by_name (trigger['device'], devices)
+            for i, condition in enumerate(automation["conditions"]):
 
-            readings = read_device (input_device, client)
+                    trigger = condition['trigger']
+                    input_device = find_object_by_name (trigger['device'], devices)
 
-            if trigger['metric'].upper() == 'VPD':
-                vpd = vpd_hpa (readings['temperature'], readings['humidity'])
-                readings['VPD'] = round(vpd, 2)
-                
-            if eval ( f"{readings[trigger['metric']]}{trigger['condition']}" ):
-                print (f"\t{input_device['name']}, {trigger['metric']}: {readings[trigger['metric']]} Condition meet ({trigger['condition']})")
-                for action in condition['actions']:
-                    action_device = find_object_by_name (action['device'], devices)
-                    current_state, new_state = relay (action_device, action['relay'], action['state'], client)
+                    readings = read_device (input_device, client)
 
-                    if current_state == new_state:
-                        print (f"\t\tNo changes in relay {action['relay']} (current state: {new_state})")
+                    if trigger['metric'].upper() == 'VPD':
+                        vpd = vpd_hpa (readings['temperature'], readings['humidity'])
+                        readings['VPD'] = round(vpd, 2)
+                        
+                    if eval ( f"{readings[trigger['metric']]}{trigger['condition']}" ):
+                        print (f"\t{input_device['name']}, {trigger['metric']}: {readings[trigger['metric']]} Condition meet ({trigger['condition']})")
+                        for action in condition['actions']:
+                            action_device = find_object_by_name (action['device'], devices)
+                            current_state, new_state = relay (action_device, action['relay'], action['state'], client)
+
+                            if current_state == new_state:
+                                print (f"\t\tNo changes in relay {action['relay']} (current state: {new_state})")
+                            else:
+                                print (f"\t\tRelay {action['relay']} changed from {current_state} to {new_state})")
+
                     else:
-                        print (f"\t\tRelay {action['relay']} changed from {current_state} to {new_state})")
+                        print (f"\t{input_device['name']}, {trigger['metric']}: {readings[trigger['metric']]} Condition not meet ({trigger['condition']})")
 
-            else:
-                print (f"\t{input_device['name']}, {trigger['metric']}: {readings[trigger['metric']]} Condition not meet ({trigger['condition']})")
+        except Exception as e:
+            print(f"Unexpected error while logging device '{input_device['name']}': {e}")
         
 def relay (device, relay_name, new_state, client):
     try:

@@ -1054,3 +1054,107 @@ timestamp,device,metric,value
 1734130118,temp_exterior,temperature,3.8
 1734130118,co2,co2,664
 1734130118,presion caldera,presion,1.21
+1734130179,Shelly PM 0,power,1005.19
+1734130179,Shelly PM 0,total,2538950.5
+1734130179,Shelly PM 0,total_returned,42041.7
+1734130179,solar,power,0
+1734130179,humedad suelo,temperature,15.94
+1734130179,humedad suelo,humidity,32.39
+1734130179,humedad suelo,ec,233
+1734130179,pH,pH,3.0
+1734130179,NPK,N,6
+1734130179,NPK,P,8
+1734130179,NPK,K,20
+1734130179,suelo,humidity,43.0
+1734130179,suelo,temperature,16.5
+1734130179,suelo,ec,141
+1734130179,suelo,pH,3.0
+1734130179,suelo,N,0
+1734130179,suelo,P,25
+1734130179,suelo,K,17
+1734130179,suelo,salinity,77
+1734130179,suelo,tds,70
+1734130179,temp_interior,humidity,79.2
+1734130179,temp_interior,temperature,5.5
+1734130179,temp_exterior,humidity,51.9
+1734130179,temp_exterior,temperature,3.7
+1734130179,co2,co2,668
+1734130179,presion caldera,presion,1.19
+1734130239,Shelly PM 0,power,969.7
+1734130239,Shelly PM 0,total,2538967.7
+1734130239,Shelly PM 0,total_returned,42041.7
+1734130239,solar,power,0
+1734130240,humedad suelo,temperature,15.94
+1734130240,humedad suelo,humidity,32.39
+1734130240,humedad suelo,ec,230
+1734130240,pH,pH,7.8
+1734130240,NPK,N,6
+1734130240,NPK,P,8
+1734130240,NPK,K,21
+1734130240,suelo,humidity,43.0
+1734130240,suelo,temperature,16.5
+1734130240,suelo,ec,141
+1734130240,suelo,pH,3.0
+1734130240,suelo,N,0
+1734130240,suelo,P,25
+1734130240,suelo,K,17
+1734130240,suelo,salinity,77
+1734130240,suelo,tds,70
+1734130240,temp_interior,humidity,79.5
+1734130240,temp_interior,temperature,5.5
+1734130240,temp_exterior,humidity,51.9
+1734130240,temp_exterior,temperature,3.8
+1734130240,co2,co2,664
+1734130240,presion caldera,presion,1.19
+1734130300,Shelly PM 0,power,968.59
+1734130300,Shelly PM 0,total,2538984.6
+1734130300,Shelly PM 0,total_returned,42041.7
+1734130300,solar,power,0
+1734130300,humedad suelo,temperature,15.94
+1734130300,humedad suelo,humidity,32.39
+1734130300,humedad suelo,ec,230
+1734130301,pH,pH,7.7
+1734130301,NPK,N,6
+1734130301,NPK,P,8
+1734130301,NPK,K,21
+1734130301,suelo,humidity,43.0
+1734130301,suelo,temperature,16.6
+1734130301,suelo,ec,141
+1734130301,suelo,pH,3.0
+1734130301,suelo,N,0
+1734130301,suelo,P,25
+1734130301,suelo,K,17
+1734130301,suelo,salinity,77
+1734130301,suelo,tds,70
+1734130301,temp_interior,humidity,79.5
+1734130301,temp_interior,temperature,5.4
+1734130301,temp_exterior,humidity,51.9
+1734130301,temp_exterior,temperature,3.8
+1734130301,co2,co2,666
+1734130301,presion caldera,presion,1.18
+1734130361,Shelly PM 0,power,876.73
+1734130361,Shelly PM 0,total,2539001.3
+1734130361,Shelly PM 0,total_returned,42041.7
+1734130363,solar,power,0
+1734130363,humedad suelo,temperature,15.97
+1734130363,humedad suelo,humidity,32.39
+1734130363,humedad suelo,ec,235
+1734130363,pH,pH,3.2
+1734130363,NPK,N,6
+1734130363,NPK,P,8
+1734130363,NPK,K,21
+1734130363,suelo,humidity,43.7
+1734130363,suelo,temperature,16.7
+1734130363,suelo,ec,139
+1734130363,suelo,pH,3.0
+1734130363,suelo,N,0
+1734130363,suelo,P,24
+1734130363,suelo,K,16
+1734130363,suelo,salinity,76
+1734130363,suelo,tds,69
+1734130363,temp_interior,humidity,79.4
+1734130363,temp_interior,temperature,5.5
+1734130363,temp_exterior,humidity,51.9
+1734130363,temp_exterior,temperature,3.6
+1734130363,co2,co2,666
+1734130363,presion caldera,presion,1.38

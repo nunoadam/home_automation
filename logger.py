@@ -44,7 +44,10 @@ def log_all(client, devices, automations):
 def log_category (category, client, devices):
     for device in devices:
         if device['category'] == category and device['enabled'] and device['type'] == 'sensor':
-            log_device(device, client)
+            try:
+                log_device(device, client)
+            except Exception as e:
+                print(f"Unexpected error for {device['name']}: {e}")
                     
 if __name__ == "__main__": 
 
