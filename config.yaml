@@ -356,7 +356,7 @@ devices:
   - name: "presion caldera"
     description: "Presión de la caldera de calefacción"
     type: "sensor"
-    enabled: True
+    enabled: False
     category: "Otros"
     
     display: "Presión caldera: {readings[0]} bar"

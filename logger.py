@@ -30,11 +30,8 @@ def log_all(client, devices, automations):
     """
     Run logging
     """
-    print ('----- Energia -----')
     log_category ('Energia', client, devices)
-    print ('----- Invernadero -----')
     log_category ('Invernadero', client, devices)
-    print ('----- Otros -----')
     log_category ('Otros', client, devices)
     print ('----- Acciones -----')
     for automation in automations:
@@ -42,8 +39,12 @@ def log_all(client, devices, automations):
         trigger (automation, devices, client)
 
 def log_category (category, client, devices):
+    first = True
     for device in devices:
         if device['category'] == category and device['enabled'] and device['type'] == 'sensor':
+            if first:
+                print (f'----- {category.title()} -----')
+                first = False
             try:
                 log_device(device, client)
             except Exception as e:
